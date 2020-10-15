@@ -23,7 +23,7 @@ namespace PropertyRental.Controllers
 
             //
             theProperty.Id =1;
-            return Json(theProperty);
+            return Json(theProperty);//t
 
 
            
