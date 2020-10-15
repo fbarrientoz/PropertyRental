@@ -60,7 +60,7 @@ function saveProperty() {
     //send the object to BE
     $.ajax({
         url:"/catalog/SaveProperty",
-        type:"POST",
+        type:"POST",////r
         data:JSON.stringify(properties),
         contentType: "application/json",
         succes: (res) => {
