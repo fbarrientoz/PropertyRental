@@ -21,7 +21,7 @@ namespace PropertyRental.Controllers
             System.Console.WriteLine("Saving a property");
             System.Console.WriteLine(theProperty.Title);
 
-            //
+            //T
             theProperty.Id =1;
             return Json(theProperty);//t
 
