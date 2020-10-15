@@ -1,0 +1,85 @@
+@{
+    ViewData["Title"] = "catalog Page";
+}
+
+
+
+
+<div class="container" id="section-Form">
+
+<h4>Register Property</h4>
+
+    <form> 
+       <div id="alertSuccess" class="alert alert-success hide">
+                    Property Registered!
+        </div>
+        <div id="alertError" class="alert alert-danger hide">
+                    <p id="alertMessage">Verify your data</p>
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput">Title</label>
+            <input type="text" class="form-control control" id="txtTitle" placeholder="Title">
+        </div>
+
+
+        <div class="form-group">
+            <label for="formGroupExampleInput">Image</label>
+            <input type="text" class="form-control control" id="txtImage" placeholder="Title">
+        </div>
+        
+        <div class="form-group">
+            <label for="formGroupExampleInput">Price</label>
+            <input type="number" class="form-control control" id="txtPrice" placeholder="Price">
+        </div>
+
+        <div class="form-group">
+            <label for="formGroupExampleInput">Beds</label>
+            <input type="number" class="form-control control" id="txtBeds" placeholder="Number of Beds">
+        </div>
+
+        <div class="form-group">
+            <label for="formGroupExampleInput">Number of Baths</label>
+            <input type="number" class="form-control control" id="txtBaths" placeholder="Number of Baths">
+        </div>
+
+         <div class="form-group">
+            <label for="formGroupExampleInput">Area</label>
+            <input type="number" class="form-control control" id="txtArea" placeholder="Area">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Description</label>
+            <textarea class="form-control control" id="txtDescription" rows="3"></textarea>
+        </div>
+
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-2 pt-0">Parking Include</legend>
+                    <div class="col-sm-10">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                            <label class="form-check-label" for="gridRadios1">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                            <label class="form-check-label" for="gridRadios2">
+                                No
+                            </label>
+                        </div>
+                
+                    </div>
+            </div>
+        </fieldset>
+        <div class="col-auto">
+            <button type="button" id="btnSave" class="btn btn-primary mb-2">Save Property</button>           
+        </div>
+    </form>
+</div>
+@section Scripts
+{
+    <script src="~/js/register.js" asp-append-version="true"></script>
+     <script src="~/js/properties.js" asp-append-version="true"></script>
+}
+ 
