@@ -21,6 +21,8 @@ namespace PropertyRental.Controllers
         public IActionResult GetProperties()
         {
             var data = dbContext.Properties.ToList();
+            //Order by price
+            data = data.OrderBy(x=> x.Price).ToList();
             return Json(data);
         }
 
