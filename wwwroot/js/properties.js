@@ -4,14 +4,17 @@ class Properties{
     *Initialize elements
     */
     constructor (title, image, price, beds, baths, area, description, parking){
-        this.title=title;
-        this.image=image;
-        this.price=price;
-        this.beds=beds;
-        this.baths=baths;
-        this.area=area;
-        this.description = description;
-        this.parking = parking;
+        this.Title=title;
+        this.Image=image;
+        this.Price=price;
+        this.Beds=beds;
+        this.Baths=baths;
+        this.Area=area;
+        this.Description = description;
+        this.Parking = parking;
+
+        this.user="Fabiola";
+        this.createdOn=new Date();
         
     }
 

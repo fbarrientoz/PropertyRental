@@ -7,79 +7,70 @@ function clearInputs(){
 }
 function saveProperty() {
     //Get values into vars
-    var title = UI.txtTitle.val();
-    var image = UI.txImage.val();
-    var price = parseFloat(UI.txtPrice.val());
-    var beds = parseInt(UI.txtBeds.val());
-    var baths = parseInt(UI.txtBaths.val());
-    var area = parseInt(UI.txtArea.val());
-    var description = UI.txtDescription.val();
-    var parking = UI.gridRadios1.is(":checked");
+    var Title = UI.txtTitle.val();
+    var Image = UI.txImage.val();
+    var Price = parseFloat(UI.txtPrice.val());
+    var Beds = parseInt(UI.txtBeds.val());
+    var Baths = parseInt(UI.txtBaths.val());
+    var Area = parseInt(UI.txtArea.val());
+    var Description = UI.txtDescription.val();
+    var Parking = UI.gridRadios1.is(":checked");
     
-    if(!price) //if the prices is Empty ,0,false Nan
+    if(!Price) 
     {
           //show an error on screen
           $("#alertMessage").innerHTML = "Error, verify the price!!!!";
-          $("#alertError").removeClass("hide");
-  
-          //set a timer(mili) to remove 
-          setTimeout(function(){
-              //hide error to user
-              $("#alertError").addClass("hide");
-          } , 3000);
+          $("#alertError").removeClass("hide");           
     
-          return; //Stop and don't go forward with next lines of code
+          return; 
     }
 
-    if(!beds) //if the prices is Empty ,0,false Nan
+    if(!Beds) 
     {
-        alert("Error, verify the number of beds")
+        $("#alertMessage").innerHTML = "Error, verify the Beds!!!!";
+        $("#alertError").removeClass("hide");
         return;
     }
 
-    if(!baths) //if the prices is Empty ,0,false Nan
+    if(!Baths) 
     {
-        alert("Error, verify the number of baths")
+        $("#alertMessage").innerHTML = "Error, verify the Baths!!!!";
+        $("#alertError").removeClass("hide");
         return;
     }
 
-    if(!area) //if the prices is Empty ,0,false Nan
+    if(!Area) 
     {
-        alert("Error, verify the area")
+        $("#alertMessage").innerHTML = "Error, verify the Area!!!!";
+        $("#alertError").removeClass("hide");
         return;
     }
 
 
     //Create an object
-    var properties = new Properties(title,image, price, beds, baths, area, description, parking);
+    var properties = new Properties(Title,Image, Price, Beds, Baths, Area, Description, Parking);
     console.log(properties);
-    //clear the form
+  
    
-    PropertyList.push(properties);
+    // PropertyList.push(properties);
 
     //send the object to BE
     $.ajax({
-        url:"/catalog/SaveProperty",
-        type:"POST",////r
-        data:JSON.stringify(properties),
-        contentType: "application/json",
-        succes: (res) => {
-            console.log(res);
-             clearInputs();
-                //show success message to user
-            $("#alertSuccess").removeClass("hide");
+        url: '/Catalog/SaveProperty',
+        type:'POST',
+        data: JSON.stringify(properties),
+        contentType:'application/json',
+        success: (res) => {
+            console.log(res);     
+            $("#alertSuccess").removeClass("hide");                   
+            clearInputs();
 
-            //set a timer(mili) to remove 
-            setTimeout(function(){
-                //hide success to user
-                $("#alertSuccess").addClass("hide");
-            } , 3000);
+
         },
-        error: (details) =>{
-            console.log("Error", details);
-             //show an message
-             $("#result").html('Error!'); 
-              $("#result").addClass("alert alert-warnin");
+        error: (details) => {
+            console.log("Error",details);
+            $("#result").html('Error!'); 
+            $("#result").addClass("alert alert-warnin");
         }
     });
        
